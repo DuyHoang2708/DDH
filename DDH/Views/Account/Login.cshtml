@@ -1,0 +1,64 @@
+﻿@model DDH.Models.Account
+@{
+    ViewData["Title"] = "Đăng nhập";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // Đảm bảo layout đúng đường dẫn
+}
+
+<div class="container mt-5" style="max-width: 420px;">
+    <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-4">
+            <h3 class="text-center mb-4 text-primary fw-bold">
+                <i class="bi bi-box-arrow-in-right me-2"></i>Đăng nhập
+            </h3>
+
+            <!-- Hiển thị lỗi nếu có -->
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger text-center fw-semibold">
+                    @ViewBag.Error
+                </div>
+            }
+
+            <form asp-action="Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <!-- Tên đăng nhập -->
+                <div class="mb-3">
+                    <label asp-for="Username" class="form-label fw-semibold">Tên đăng nhập</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-person"></i></span>
+                        <input asp-for="Username" class="form-control" placeholder="Nhập tên đăng nhập" />
+                    </div>
+                    <span asp-validation-for="Username" class="text-danger small"></span>
+                </div>
+
+                <!-- Mật khẩu -->
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label fw-semibold">Mật khẩu</label>
+                    <div class="input-group">
+                        <span class="input-group-text bg-light"><i class="bi bi-lock"></i></span>
+                        <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <!-- Nút đăng nhập -->
+                <button type="submit" class="btn btn-primary w-100 py-2 rounded-pill fw-semibold">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>Đăng nhập
+                </button>
+
+                <!-- Link đăng ký -->
+                <div class="text-center mt-3">
+                    <span>Chưa có tài khoản? </span>
+                    <a asp-action="Register" class="text-decoration-none text-primary fw-semibold">
+                        Đăng ký ngay
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

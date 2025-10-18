@@ -1,0 +1,126 @@
+﻿@model List<DDH.Models.CartItem>
+@{
+    ViewData["Title"] = "Giỏ hàng của bạn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container py-5">
+    <div class="card shadow-lg border-0 rounded-4 p-4">
+        <h2 class="text-center mb-4 fw-bold text-primary">
+            🛒 Giỏ hàng của bạn
+        </h2>
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info text-center py-5 rounded-3">
+                <h5>Giỏ hàng của bạn hiện đang trống.</h5>
+                <p class="text-muted">Hãy chọn ngay sản phẩm yêu thích!</p>
+                <a href="/" class="btn btn-lg btn-primary mt-3">
+                    <i class="bi bi-bag"></i> Mua sắm ngay
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="table-responsive">
+                <table class="table align-middle table-hover">
+                    <thead class="bg-primary text-white">
+                        <tr>
+                            <th style="width:120px;">Ảnh</th>
+                            <th>Sản phẩm</th>
+                            <th>Giá</th>
+                            <th>Số lượng</th>
+                            <th>Tổng</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <img src="@item.Image" alt="@item.ProductName"
+                                         class="img-thumbnail rounded-3"
+                                         style="height: 80px; width: 80px; object-fit: cover;" />
+                                </td>
+                                <td class="fw-semibold text-start">@item.ProductName</td>
+                                <td class="text-danger fw-semibold">@item.Price.ToString("N0") ₫</td>
+                                <td>
+                                    <span class="badge bg-light text-dark px-3 py-2">@item.Quantity</span>
+                                </td>
+                                <td class="fw-bold text-success">@item.Total.ToString("N0") ₫</td>
+                                <td>
+                                    <a href="/Cart/Remove?productId=@item.ProductId" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash"></i> Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mt-4">
+                <h4 class="fw-bold mb-0">
+                    Tổng cộng: <span class="text-danger">@ViewBag.Total.ToString("N0") ₫</span>
+                </h4>
+                <div class="text-end">
+                    <a href="/Cart/Clear" class="btn btn-outline-danger me-2">
+                        <i class="bi bi-x-circle"></i> Xóa tất cả
+                    </a>
+                    <a href="/Checkout" class="btn btn-success">
+                        <i class="bi bi-credit-card"></i> Thanh toán
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .card {
+        background: #fff;
+        border-radius: 15px;
+        transition: all 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    table thead {
+        border-radius: 12px;
+    }
+
+    table th, table td {
+        vertical-align: middle !important;
+        text-align: center;
+    }
+
+    .btn-outline-danger:hover {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    .text-primary {
+        color: #4B49AC !important;
+    }
+
+    .badge {
+        font-size: 0.95rem;
+    }
+</style>

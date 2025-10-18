@@ -1,0 +1,208 @@
+﻿@model DDH.Models.Product
+
+@{
+    ViewData["Title"] = "Thêm sản phẩm mới";
+}
+<h2>Tạo mới sản phẩm</h2>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #2c3e50;
+        font-size: 22px;
+    }
+    form {
+        max-width: 550px;
+        margin: 0 auto;
+        background-color: #f8f9fa;
+        padding: 20px 25px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+        form div {
+            margin-bottom: 16px;
+        }
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+        color: #34495e;
+        font-size: 14px;
+    }
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+    }
+    textarea {
+        resize: vertical;
+    }
+    input[type="checkbox"] {
+        transform: scale(1.1);
+        margin-right: 6px;
+    }
+    button[type="submit"] {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background-color 0.3s;
+        display: block;
+        margin: 15px auto 0;
+    }
+        button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    .error-message {
+        color: red;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 12px;
+        font-size: 14px;
+    }
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-lg">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-plus me-2"></i>Thêm sản phẩm mới
+                    </h4>
+                </div>
+                <div class="card-body">
+                    @* ✅ Hiển thị thông báo lỗi *@
+                    @if (TempData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    }
+
+                    @using (Html.BeginForm("CreateProducts", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(m => m.Name, "Tên sản phẩm *", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Nhập tên sản phẩm" })
+                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(m => m.Price, "Giá bán *", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m => m.Price, new { @class = "form-control", type = "number", min = "0", step = "0.01" })
+                                    @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(m => m.Stock, "Số lượng tồn kho *", new { @class = "form-label" })
+                                    @Html.TextBoxFor(m => m.Stock, new { @class = "form-control", type = "number", min = "0" })
+                                    @Html.ValidationMessageFor(m => m.Stock, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    @Html.LabelFor(m => m.IsActive, "Trạng thái sản phẩm", new { @class = "form-label" })
+                                    @Html.DropDownListFor(m => m.IsActive, new List<SelectListItem>
+                                    {
+                                        new SelectListItem { Text = "Hiển thị", Value = "true", Selected = true },
+                                        new SelectListItem { Text = "Ẩn", Value = "false" }
+                                    }, new { @class = "form-select" })
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                  <label class="form-label">Thương hiệu *</label>
+                                    <select class="form-select" name="BrandId" required>
+                                        <option value="">Chọn thương hiệu</option>
+                                        @foreach (var brand in ViewBag.Brands)
+                                        {
+                                            <option value="@brand.BrandId">@brand.Name</option>
+                                        }
+                                    </select>
+                                    <span asp-validation-for="BrandId" class="text-danger"></span>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label">Danh mục *</label>
+                                    <select class="form-select" name="CategoryId" required>
+                                        <option value="">Chọn danh mục</option>
+                                        @foreach (var category in ViewBag.Categories)
+                                        {
+                                            <option value="@category.CategoryId">@category.Name</option>
+                                        }
+                                    </select>
+                                </div>
+                            </div>
+                        
+
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.Description, "Mô tả sản phẩm", new { @class = "form-label" })
+                            @Html.TextAreaFor(m => m.Description, 3, 50, new { @class = "form-control", placeholder = "Nhập mô tả sản phẩm..." })
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Hình ảnh sản phẩm</label>
+                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
+                            <small class="form-text text-muted">Chỉ chấp nhận JPG, PNG hoặc GIF.</small>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="ListProducts" class="btn btn-secondary">
+                                <i class="fas fa-arrow-left me-2"></i>Quay lại
+                            </a>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-save me-2"></i>Tạo sản phẩm
+                            </button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        // Ẩn alert sau 5 giây
+        setTimeout(() => $('.alert').fadeOut('slow'), 5000);
+    </script>
+}

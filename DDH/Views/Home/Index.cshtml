@@ -1,0 +1,130 @@
+﻿@model IEnumerable<DDH.Models.Product>
+
+@{
+    ViewData["Title"] = "Trang chủ | Shop Quần Áo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <!-- Banner -->
+    <div class="text-center p-5 bg-light rounded-3 mb-4 shadow-sm">
+        <h1 class="display-5 fw-bold text-primary">🛍️ Shop Quần Áo Trực Tuyến</h1>
+        <p class="lead mt-3 mb-4 text-muted">
+            Cập nhật xu hướng thời trang mới nhất – phong cách, chất lượng và giá tốt!
+        </p>
+        <a href="/Admin/Products/ListProducts" class="btn btn-primary btn-lg">
+            Quản lý sản phẩm
+        </a>
+    </div>
+
+    <!-- Danh mục nổi bật -->
+    <h2 class="text-center mb-4 fw-semibold">Danh mục nổi bật</h2>
+    <div class="row text-center mb-5">
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="https://cdn-icons-png.flaticon.com/512/2974/2974198.png" class="card-img-top p-4" style="height:180px; object-fit:contain;" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Thời trang Nam</h5>
+                    <a href="/Products?category=nam" class="btn btn-outline-primary btn-sm">Xem ngay</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="https://cdn-icons-png.flaticon.com/512/2974/2974163.png" class="card-img-top p-4" style="height:180px; object-fit:contain;" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Thời trang Nữ</h5>
+                    <a href="/Products?category=nu" class="btn btn-outline-primary btn-sm">Khám phá</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card h-100 border-0 shadow-sm">
+                <img src="https://cdn-icons-png.flaticon.com/512/2974/2974209.png" class="card-img-top p-4" style="height:180px; object-fit:contain;" />
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">Thời trang Trẻ em</h5>
+                    <a href="/Products?category=tre-em" class="btn btn-outline-primary btn-sm">Mua ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sản phẩm nổi bật -->
+    <h2 class="text-center mb-4 fw-semibold">Sản phẩm nổi bật</h2>
+
+    <div class="row text-center">
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card h-100 shadow-sm border-0">
+                        <img src="@item.ImageUrl" class="card-img-top" style="height:220px; object-fit:cover;" alt="@item.Name" />
+                        <div class="card-body">
+                            <h6 class="card-title fw-bold">@item.Name</h6>
+                            <p class="text-danger fw-bold">@item.Price.ToString("N0") ₫</p>
+
+                            <div class="d-flex justify-content-between">
+                                <a href="/Products/Details/@item.ProductId" class="btn btn-sm btn-outline-secondary">
+                                    <i class="bi bi-eye"></i> Chi tiết
+                                </a>
+
+                                <form asp-controller="Cart" asp-action="AddToCart" method="post" class="m-0">
+                                    <input type="hidden" name="productId" value="@item.ProductId" />
+                                    <button type="submit" class="btn btn-sm btn-primary">
+                                        <i class="bi bi-cart-plus"></i> Thêm
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="col-12">
+                <div class="alert alert-info text-center">Chưa có sản phẩm nào được hiển thị.</div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+    }
+
+    h1, h2 {
+        color: #333;
+    }
+
+    .card {
+        transition: all 0.3s ease;
+    }
+
+        .card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+    .btn-primary {
+        background-color: #4B49AC;
+        border: none;
+    }
+
+        .btn-primary:hover {
+            background-color: #3c3aa7;
+        }
+
+    .btn-outline-secondary {
+        border-color: #aaa;
+        color: #555;
+    }
+
+        .btn-outline-secondary:hover {
+            background-color: #eee;
+        }
+</style>

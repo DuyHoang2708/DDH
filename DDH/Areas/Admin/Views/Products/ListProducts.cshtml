@@ -1,0 +1,297 @@
+﻿@model List<DDH.Models.Product>
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="container-fluid">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <h2 class="text-primary mb-0">
+                        <i class="fas fa-boxes me-2"></i>Quản lý sản phẩm
+                    </h2>
+                    <p class="text-muted"> Quản lý thông tin sản phẩm và marketing </p>
+                </div>
+                <a href="/Admin/Products/CreateProducts" class="btn btn-success">
+                    <i class="fas fa-plus me-1"></i>Thêm sản phẩm mới
+                </a>
+            </div>
+        </div>
+    </div>
+
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <i class="fas fa-exclamation-triangle me-2"></i>
+            @ViewBag.Error
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(TempData["SuccessMessage"]?.ToString()))
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle me-2"></i>
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Bảng sản phẩm -->
+    <div class="card shadow">
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+            <h6 class="m-0 font-weight-bold text-primary">
+                <i class="fas fa-list me-2"></i>Danh sách sản phẩm (@Model.Count() sản phẩm)
+            </h6>
+        </div>
+        <div class="card-body">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
+                            <tr>
+                                <th>Hình ảnh</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Danh mục</th>
+                                <th>Thương hiệu</th>
+                                <th>Giá</th>
+                                <th>Tồn kho</th>
+                                <th>Trạng thái</th>
+                                <th>Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var product in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @if (!string.IsNullOrEmpty(product.ImageUrl))
+                                        {
+                                            <img src="@product.ImageUrl" alt="@product.Name"
+                                                 style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;" />
+                                        }
+                                        else
+                                        {
+                                            <div class="bg-light d-flex align-items-center justify-content-center"
+                                                 style="width: 60px; height: 60px; border-radius: 8px;">
+                                                <i class="fas fa-image text-muted"></i>
+                                            </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <strong class="text-primary">@product.Name</strong><br />
+                                        <small class="text-muted">@product.Description</small>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-info">@product.Category?.Name ?? "N/A"</span>
+                                    </td>
+                                    <td>
+                                        <span class="badge bg-secondary">@product.Brand?.Name ?? "N/A"</span>
+                                    </td>
+                                    <td>
+                                        <span class="text-success fw-bold">@string.Format("{0:N0} VNĐ", product.Price)</span>
+                                    </td>
+                                    <td>
+                                        @if (product.Stock <= 0)
+                                        {
+                                            <span class="badge bg-danger">Hết hàng</span>
+                                        }
+                                        else if (product.Stock <= 10)
+                                        {
+                                            <span class="badge bg-warning">@product.Stock</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-success">@product.Stock</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        @if (product.IsActive)
+                                        {
+                                            <span class="badge bg-success">Hiển thị</span>
+                                        }
+                                        else
+                                        {
+                                            <span class="badge bg-secondary">Ẩn</span>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div class="btn-group" role="group">
+                                            <a href="/Admin/Products/UpdateProducts/@product.ProductId"
+                                               class="btn btn-sm btn-outline-primary" title="Chỉnh sửa">
+                                                <i class="fas fa-edit">✏️</i>
+                                            </a>
+                                            <button type="button"
+                                                    class="btn btn-sm btn-outline-danger"
+                                                    onclick="toggleStatus(@product.ProductId, this)"
+                                                    title="Ẩn/Hiện sản phẩm">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+
+                                            <!-- Font Awesome CDN -->
+                                            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+                                            <script>
+                                                function toggleStatus(productId, button) {
+                                                    const icon = button.querySelector("i");
+
+                                                    // Gọi API hoặc AJAX xử lý ẩn/hiện (tuỳ bạn cài đặt)
+                                                    // Ví dụ đơn giản: chỉ đổi icon để demo
+                                                    if (icon.classList.contains("fa-eye")) {
+                                                        icon.classList.remove("fa-eye");
+                                                        icon.classList.add("fa-eye-slash");
+                                                        button.classList.remove("btn-outline-danger");
+                                                        button.classList.add("btn-outline-secondary");
+                                                    } else {
+                                                        icon.classList.remove("fa-eye-slash");
+                                                        icon.classList.add("fa-eye");
+                                                        button.classList.remove("btn-outline-secondary");
+                                                        button.classList.add("btn-outline-danger");
+                                                    }
+                                                }
+                                            </script>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <i class="fas fa-box fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">Không có sản phẩm nào</h5>
+                    <a href="/Admin/Products/CreateProducts" class="btn btn-primary">
+                        <i class="fas fa-plus me-1"></i>Thêm sản phẩm mới
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<style>
+    .border-left-primary {
+        border-left: 0.25rem solid #4e73df !important;
+    }
+
+    .border-left-success {
+        border-left: 0.25rem solid #1cc88a !important;
+    }
+
+    .border-left-info {
+        border-left: 0.25rem solid #36b9cc !important;
+    }
+
+    .border-left-warning {
+        border-left: 0.25rem solid #f6c23e !important;
+    }
+
+    .text-gray-300 {
+        color: #dddfeb !important;
+    }
+
+    .text-gray-800 {
+        color: #5a5c69 !important;
+    }
+</style>
+
+<script>
+    function toggleStatus(productId) {
+        if (confirm('Bạn có muốn thay đổi trạng thái hiển thị của sản phẩm này?')) {
+            fetch(`/Admin/Products/ToggleStatus/${productId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            })
+            .then(response => response.ok ? location.reload() : alert('Có lỗi xảy ra!'))
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi thực hiện thao tác');
+            });
+        }
+    }
+</script>
+<style>
+    .border-left-primary {
+        border-left: 0.25rem solid #4e73df !important;
+    }
+
+    .border-left-success {
+        border-left: 0.25rem solid #1cc88a !important;
+    }
+
+    .border-left-info {
+        border-left: 0.25rem solid #36b9cc !important;
+    }
+
+    .border-left-warning {
+        border-left: 0.25rem solid #f6c23e !important;
+    }
+
+    .text-gray-300 {
+        color: #dddfeb !important;
+    }
+
+    .text-gray-800 {
+        color: #5a5c69 !important;
+    }
+
+    .card-header {
+        background: linear-gradient(90deg, #764ba2, #0000FF); /* xanh tím */
+        color: white;
+        font-weight: bold;
+        border-radius: 8px 8px 0 0;
+    }
+
+    /* Thanh tiêu đề cột trong bảng */
+    .table thead {
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        color: white;
+        font-weight: 600;
+    }
+
+        /* Căn giữa nội dung trong header bảng */
+        .table thead th {
+            text-align: center;
+            vertical-align: middle;
+            padding: 12px;
+        }
+</style>
+
+<script>
+       function toggleStatus(productId) {
+        if (confirm('Bạn có muốn thay đổi trạng thái hiển thị của sản phẩm này?')) {
+            fetch(`/Admin/Products/ToggleStatus/${productId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    location.reload();
+                } else {
+                    alert('Có lỗi xảy ra khi thực hiện thao tác');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Có lỗi xảy ra khi thực hiện thao tác');
+            });
+        }
+    }
+
+
+  
+        
+</script>
+

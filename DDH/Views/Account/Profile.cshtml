@@ -1,0 +1,41 @@
+﻿@model DDH.Models.Account
+@{
+    ViewData["Title"] = "Hồ sơ cá nhân";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5" style="max-width: 600px;">
+    <div class="card shadow p-4">
+        <h3 class="text-center text-primary mb-4">Hồ sơ cá nhân</h3>
+
+        <div class="text-center mb-3">
+            <img src="~/images/default-avatar.png" alt="Avatar"
+                 class="rounded-circle shadow" width="100" height="100" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Tên đăng nhập:</label>
+            <div>@Model.Username</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Họ tên:</label>
+            <div>@Model.FullName</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Email:</label>
+            <div>@Model.Email</div>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label fw-bold">Số điện thoại:</label>
+            <div>@Model.Phone</div>
+        </div>
+
+        <div class="text-center mt-4">
+            <a asp-action="EditProfile" class="btn btn-outline-primary">✏️ Cập nhật hồ sơ</a>
+            <a asp-action="Logout" class="btn btn-danger ms-2">Đăng xuất</a>
+        </div>
+    </div>
+</div>

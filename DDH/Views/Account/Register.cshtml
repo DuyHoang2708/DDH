@@ -1,0 +1,47 @@
+﻿@model DDH.Models.Account
+@{
+    ViewData["Title"] = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/_Layout.cshtml"; // nếu bạn có layout khác thì đổi lại
+}
+
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow p-4">
+        <h3 class="text-center mb-4 text-primary">Tạo tài khoản mới</h3>
+
+        <form asp-action="Register" method="post">
+            <div class="mb-3">
+                <label asp-for="FullName" class="form-label">Họ và tên</label>
+                <input asp-for="FullName" class="form-control" placeholder="Nhập họ tên đầy đủ" />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Username" class="form-label">Tên đăng nhập</label>
+                <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Email" class="form-label">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Email của bạn" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label">Mật khẩu</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+
+            <div class="text-center mt-3">
+                <a asp-action="Login" class="text-decoration-none">Đã có tài khoản? Đăng nhập</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,636 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\web\\DDH\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251018134859_adduserprofilefields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251018134859_adduserprofilefields.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\account.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\account\\profile.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\_viewimports.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\applicationdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\cart\\listcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\cart\\listcart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\areas\\admin\\views\\products\\listproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\areas\\admin\\views\\products\\listproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\errorviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\home\\privacy.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\views\\_viewstart.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\areas\\admin\\controllers\\productscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\areas\\admin\\views\\products\\updateproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\areas\\admin\\views\\products\\updateproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\areas\\admin\\views\\products\\createproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\areas\\admin\\views\\products\\createproducts.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\areas\\admin\\views\\shared\\_layoutadmin.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\brand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\models\\category.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251008130400_initdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251008130400_initdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\ddh.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\ddh.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\wwwroot\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\wwwroot\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\ddh.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\ddh.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251008130900_addimageurltoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251008130900_addimageurltoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251008130953_addisactivetoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251008130953_addisactivetoproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251009132425_removedescriptionfrombrandandcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251009132425_removedescriptionfrombrandandcategory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251009130740_updatecategorymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251009130740_updatecategorymodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|d:\\web\\ddh\\ddh\\migrations\\20251009130710_updatebrandmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{27CF3999-7F69-4A55-BC52-4535EB41E2B5}|DDH\\DDH.csproj|solutionrelative:ddh\\migrations\\20251009130710_updatebrandmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Profile.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Account\\Profile.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Account\\Profile.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Account\\Profile.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Account\\Profile.cshtml",
+              "ViewState": "AgIAABEAAAAAAAAAAAAEwCAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T13:47:26.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "DDH\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T10:57:01.523Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ApplicationDbContext.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\ApplicationDbContext.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\ApplicationDbContext.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\ApplicationDbContext.cs",
+              "RelativeToolTip": "DDH\\Models\\ApplicationDbContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA5wAkAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:19:43.399Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_ViewImports.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\_ViewImports.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\_ViewImports.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\_ViewImports.cshtml",
+              "RelativeToolTip": "DDH\\Views\\_ViewImports.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T11:29:32.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Account\\Login.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T13:24:58.638Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "DDH\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "DDH\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAUwFMAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T13:21:39.863Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Program.cs",
+              "RelativeDocumentMoniker": "DDH\\Program.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Program.cs*",
+              "RelativeToolTip": "DDH\\Program.cs*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:21:07.319Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "20251018134859_AddUserProfileFields.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251018134859_AddUserProfileFields.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251018134859_AddUserProfileFields.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251018134859_AddUserProfileFields.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251018134859_AddUserProfileFields.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T13:48:59.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Account.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\Account.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\Account.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\Account.cs",
+              "RelativeToolTip": "DDH\\Models\\Account.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T13:10:43.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "ListProducts.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\ListProducts.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Areas\\Admin\\Views\\Products\\ListProducts.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\ListProducts.cshtml",
+              "RelativeToolTip": "DDH\\Areas\\Admin\\Views\\Products\\ListProducts.cshtml",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAmwHkAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T13:29:41.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "ErrorViewModel.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\ErrorViewModel.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\ErrorViewModel.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\ErrorViewModel.cs",
+              "RelativeToolTip": "DDH\\Models\\ErrorViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:07:47.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T13:23:40.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "DDH\\Controllers\\CartController.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Controllers\\CartController.cs",
+              "RelativeToolTip": "DDH\\Controllers\\CartController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T12:43:56.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Product.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\Product.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\Product.cs",
+              "RelativeToolTip": "DDH\\Models\\Product.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAYwBsAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:16:26.238Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ListCart.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Cart\\ListCart.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Cart\\ListCart.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Cart\\ListCart.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Cart\\ListCart.cshtml",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAuwH4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-18T12:46:45.776Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAIIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T10:55:35.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\CartItem.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\CartItem.cs",
+              "RelativeToolTip": "DDH\\Models\\CartItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-18T12:40:23.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Privacy.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\Home\\Privacy.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\Home\\Privacy.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\Home\\Privacy.cshtml",
+              "RelativeToolTip": "DDH\\Views\\Home\\Privacy.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T13:56:01.191Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "_ViewStart.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Views\\_ViewStart.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Views\\_ViewStart.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Views\\_ViewStart.cshtml",
+              "RelativeToolTip": "DDH\\Views\\_ViewStart.cshtml",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-04T11:34:48.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "DDH\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "DDH\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:35:55.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ProductsController.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeDocumentMoniker": "DDH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "RelativeToolTip": "DDH\\Areas\\Admin\\Controllers\\ProductsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T12:55:03.094Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\Category.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\Category.cs",
+              "RelativeToolTip": "DDH\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:17:22.738Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "UpdateProducts.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\UpdateProducts.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Areas\\Admin\\Views\\Products\\UpdateProducts.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\UpdateProducts.cshtml",
+              "RelativeToolTip": "DDH\\Areas\\Admin\\Views\\Products\\UpdateProducts.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAEwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T14:44:04.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "CreateProducts.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\CreateProducts.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Areas\\Admin\\Views\\Products\\CreateProducts.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Products\\CreateProducts.cshtml",
+              "RelativeToolTip": "DDH\\Areas\\Admin\\Views\\Products\\CreateProducts.cshtml",
+              "ViewState": "AgIAAHwAAAAAAAAAAAAowI8AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T13:39:33.767Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "_LayoutAdmin.cshtml",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeDocumentMoniker": "DDH\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "RelativeToolTip": "DDH\\Areas\\Admin\\Views\\Shared\\_LayoutAdmin.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-10-08T13:33:48.153Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "Brand.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Models\\Brand.cs",
+              "RelativeDocumentMoniker": "DDH\\Models\\Brand.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Models\\Brand.cs",
+              "RelativeToolTip": "DDH\\Models\\Brand.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T11:19:04.964Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "20251009132425_RemoveDescriptionFromBrandAndCategory.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251009132425_RemoveDescriptionFromBrandAndCategory.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251009132425_RemoveDescriptionFromBrandAndCategory.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251009132425_RemoveDescriptionFromBrandAndCategory.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251009132425_RemoveDescriptionFromBrandAndCategory.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAgwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T13:24:26.116Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "20251009130740_UpdateCategoryModel.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251009130740_UpdateCategoryModel.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251009130740_UpdateCategoryModel.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251009130740_UpdateCategoryModel.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251009130740_UpdateCategoryModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T13:07:40.784Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 36,
+              "Title": "20251009130710_UpdateBrandModel.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251009130710_UpdateBrandModel.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251009130710_UpdateBrandModel.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251009130710_UpdateBrandModel.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251009130710_UpdateBrandModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-09T13:07:10.336Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\appsettings.json",
+              "RelativeDocumentMoniker": "DDH\\appsettings.json",
+              "ToolTip": "D:\\web\\DDH\\DDH\\appsettings.json",
+              "RelativeToolTip": "DDH\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-04T11:20:31.608Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "20251008130400_InitDB.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251008130400_InitDB.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251008130400_InitDB.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251008130400_InitDB.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251008130400_InitDB.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T13:04:01.235Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "20251008130900_AddImageUrlToProduct.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251008130900_AddImageUrlToProduct.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251008130900_AddImageUrlToProduct.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251008130900_AddImageUrlToProduct.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251008130900_AddImageUrlToProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T13:09:01.14Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "20251008130953_AddIsActiveToProduct.cs",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Migrations\\20251008130953_AddIsActiveToProduct.cs",
+              "RelativeDocumentMoniker": "DDH\\Migrations\\20251008130953_AddIsActiveToProduct.cs",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Migrations\\20251008130953_AddIsActiveToProduct.cs",
+              "RelativeToolTip": "DDH\\Migrations\\20251008130953_AddIsActiveToProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-08T13:09:53.794Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "DDH.csproj",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\DDH.csproj",
+              "RelativeDocumentMoniker": "DDH\\DDH.csproj",
+              "ToolTip": "D:\\web\\DDH\\DDH\\DDH.csproj",
+              "RelativeToolTip": "DDH\\DDH.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-04T11:12:15.746Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "favicon.ico -  [English (United States)] - Icon [32x32, 32 bit, BMP]",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\wwwroot\\favicon.ico",
+              "RelativeDocumentMoniker": "DDH\\wwwroot\\favicon.ico",
+              "ToolTip": "D:\\web\\DDH\\DDH\\wwwroot\\favicon.ico -  [English (United States)] - Icon [32x32, 32 bit, BMP]",
+              "RelativeToolTip": "DDH\\wwwroot\\favicon.ico -  [English (United States)] - Icon [32x32, 32 bit, BMP]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2025-10-04T11:35:53.506Z",
+              "EditorCaption": " -  [English (United States)] - Icon [32x32, 32 bit, BMP]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "DDH\\Properties\\launchSettings.json",
+              "ToolTip": "D:\\web\\DDH\\DDH\\Properties\\launchSettings.json",
+              "RelativeToolTip": "DDH\\Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-04T11:34:53.909Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "DDH",
+              "DocumentMoniker": "D:\\web\\DDH\\DDH\\DDH.csproj",
+              "RelativeDocumentMoniker": "DDH\\DDH.csproj",
+              "ToolTip": "D:\\web\\DDH\\DDH\\DDH.csproj",
+              "RelativeToolTip": "DDH\\DDH.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-10-04T11:34:57.872Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
