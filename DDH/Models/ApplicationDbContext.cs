@@ -13,6 +13,12 @@ namespace DDH.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Favorite> Favorites { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
+        
+
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,6 +38,14 @@ namespace DDH.Models
                 .WithMany(b => b.Products)
                 .HasForeignKey(p => p.BrandId)
                 .OnDelete(DeleteBehavior.Cascade);
+           
+
+            // Ràng buộc quan hệ 1-n giữa Account và Order
+            modelBuilder.Entity<Order>()
+                .HasOne(o => o.Account)
+                .WithMany()
+                .HasForeignKey(o => o.AccountId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

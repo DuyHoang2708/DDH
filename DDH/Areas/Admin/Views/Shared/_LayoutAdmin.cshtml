@@ -1,130 +1,374 @@
 ﻿@{
     Layout = null;
+    var userName = Context.Session.GetString("Phone") ?? "Admin";
+    var currentController = ViewContext.RouteData.Values["controller"]?.ToString();
+    var currentAction = ViewContext.RouteData.Values["action"]?.ToString();
 }
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Quản trị cửa hàng thời trang</title>
-
-    <!-- Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <title>@ViewData["Title"] - EasyBuy Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
 
     <style>
+        /* ======= Tổng thể ======= */
         body {
-            background-color: #f8f9fa;
-            font-family: 'Segoe UI', sans-serif;
+            background: #f9fafb;
+            font-family: "Segoe UI", Roboto, Helvetica, sans-serif;
+            color: #333;
+            margin: 0;
         }
 
-        /* Sidebar */
-        .sidebar {
-            width: 250px;
-            background-color: #212529;
+        /* ======= SIDEBAR ======= */
+        .sidebar-admin {
+            min-height: 100vh;
+            background: #ffffff;
+            color: #333;
+            border-right: 1px solid #e0e0e0;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.03);
             position: fixed;
             top: 0;
-            bottom: 0;
-            color: white;
-            padding-top: 1rem;
+            left: 0;
+            z-index: 1000;
+            width: 280px;
+            display: flex;
+            flex-direction: column;
         }
 
-            .sidebar a {
-                color: #adb5bd;
-                text-decoration: none;
-                display: block;
-                padding: 10px 20px;
-                transition: all 0.2s;
+            .sidebar-admin .sidebar-header {
+                font-size: 1.4rem;
+                font-weight: 600;
+                padding: 2rem 1rem 1rem;
+                text-align: center;
+                color: #dc3545;
             }
 
-                .sidebar a:hover, .sidebar a.active {
-                    background-color: #0d6efd;
-                    color: white;
+                .sidebar-admin .sidebar-header div {
+                    font-size: 0.9rem;
+                    font-weight: 400;
+                    opacity: 0.8;
                 }
 
-        /* Header */
-        .admin-header {
-            background-color: #fff;
-            border-bottom: 1px solid #dee2e6;
-            padding: 10px 20px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            .sidebar-admin .nav-link {
+                color: #555;
+                border-radius: 8px;
+                margin: 4px 10px;
+                font-weight: 500;
+                transition: all 0.2s;
+                padding: 10px 15px;
+                display: flex;
+                align-items: center;
+            }
+
+                .sidebar-admin .nav-link i {
+                    width: 22px;
+                    text-align: center;
+                    margin-right: 10px;
+                }
+
+                .sidebar-admin .nav-link.active,
+                .sidebar-admin .nav-link:hover {
+                    color: #dc3545;
+                    background-color: #fdf2f2;
+                }
+
+            .sidebar-admin .user-info {
+                padding: 1.5rem 1rem;
+                border-top: 1px solid #e0e0e0;
+                margin-top: auto;
+            }
+
+                .sidebar-admin .user-info .fa-user-circle {
+                    font-size: 2rem;
+                    margin-right: 10px;
+                    color: #dc3545;
+                }
+
+            .sidebar-admin .logout-btn {
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+        /* ======= MAIN CONTENT ======= */
+        main.content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            margin: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            margin-left: 300px;
         }
 
-        /* Main content */
-        .content {
-            margin-left: 250px;
-            padding: 20px;
-            min-height: 100vh;
+        /* ======= FOOTER ======= */
+        .footer-intro {
+            background-color: #ffe6f0; /* nền hồng nhạt */
+            color: #444;
+            padding: 40px 0 15px;
+            border-top: 2px solid #f5b5cf;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin-left: 300px;
         }
 
-        /* Footer */
-        footer {
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+            margin-bottom: 25px;
+        }
+
+            .footer-title,
+            .footer-col h4 {
+                font-size: 22px;
+                color: #c2185b;
+                margin-bottom: 12px;
+                font-weight: 600;
+            }
+
+            .footer-col ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+            }
+
+                .footer-col ul li {
+                    margin: 6px 0;
+                }
+
+            .footer-col a {
+                text-decoration: none;
+                color: #555;
+                transition: color 0.3s;
+            }
+
+                .footer-col a:hover {
+                    color: #c2185b;
+                }
+
+        .footer-bottom {
             text-align: center;
-            color: #6c757d;
-            border-top: 1px solid #dee2e6;
-            padding: 15px 0;
+            border-top: 1px solid #f5b5cf;
+            padding-top: 10px;
+            font-size: 0.9rem;
+            color: #777;
         }
 
-        /* Responsive */
-        <style >
-        @@media (max-width: 768px) {
-            .sidebar
+        /* ======= RESPONSIVE ======= */
+        @@media (max-width: 991.98px) {
+            .sidebar-admin
 
         {
-            width: 100%;
             position: relative;
+            width: 100%;
+            min-height: auto;
         }
 
-        .content {
+        main.content {
+            margin-left: 1rem;
+        }
+
+        .footer-intro {
             margin-left: 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        }
+
+        @@media (max-width: 768px) {
+            .sidebar-admin
+
+        {
+            position: fixed;
+            left: -280px;
+            transition: left 0.3s ease;
+        }
+
+        .sidebar-admin.show {
+            left: 0;
+        }
+
+        main.content {
+            margin-left: 1rem;
+        }
+
+        .footer-intro {
+            margin-left: 0 !important;
         }
 
         }
     </style>
 
-
-    </style>
 </head>
-
 <body>
-    <!-- Sidebar -->
-    <nav class="sidebar">
-        <div class="text-center mb-4">
-            <h5 class="text-white">🛍️ Quản trị DDH</h5>
-        </div>
-        <a href="/Admin/Products/ListProducts" class="active"><i class="bi bi-box-seam me-2"></i>Sản phẩm</a>
-        <a href="/Admin/Categories/ListCategories"><i class="bi bi-tags me-2"></i>Danh mục</a>
-        <a href="/Admin/Brands/ListBrands"><i class="bi bi-building me-2"></i>Thương hiệu</a>
-        <a href="/Admin/Orders/ListOrders"><i class="bi bi-receipt me-2"></i>Đơn hàng</a>
-        <a href="/Admin/Users/ListUsers"><i class="bi bi-people me-2"></i>Người dùng</a>
-        <a href="/"><i class="bi bi-house-door me-2"></i>Về trang chủ</a>
-        <a href="#"><i class="bi bi-box-arrow-right me-2"></i>Đăng xuất</a>
-    </nav>
+    <div class="container-fluid">
+        <!-- Sidebar -->
+        <nav class="sidebar-admin d-flex flex-column">
+            <div class="sidebar-header">
+                <i class="fas fa-shield-alt me-2"></i> DDH Admin
 
-    <!-- Header -->
-    <header class="admin-header d-flex justify-content-between align-items-center">
-        <h5 class="m-0">@ViewData["Title"]</h5>
-        <div>
-            <span class="me-3"><i class="bi bi-person-circle"></i> Admin</span>
-            <a href="/" class="btn btn-sm btn-outline-secondary"><i class="bi bi-box-arrow-left"></i> Đăng xuất</a>
-        </div>
-    </header>
+                <div>Quản trị hệ thống</div>
+            </div>
 
-    <!-- Main content -->
-    <main class="content">
-        @RenderBody()
-    </main>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a href="/Admin/Home/Dashboard" class="nav-link @(currentController == "Home" ? "active" : "")">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
 
-    <!-- Footer -->
-    <footer>
-        © 2025 - Hệ thống quản trị cửa hàng thời trang DDH
-    </footer>
+                <li class="nav-item">
+                    <a href="/Admin/Users/ListUser" class="nav-link @(currentController == "Users" ? "active" : "")">
+                        <i class="fas fa-users"></i> Quản lý người dùng
+                    </a>
+                </li>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                <li class="nav-item">
+                    <a href="/Admin/Products/ListProducts" class="nav-link @(currentController == "Products" ? "active" : "")">
+                        <i class="fas fa-boxes"></i> Quản lý sản phẩm
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Orders/ListOrders" class="nav-link @(currentController == "Orders" ? "active" : "")">
+                        <i class="fas fa-shopping-cart"></i> Quản lý đơn hàng
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Category/ListCategory" class="nav-link @(currentController == "Categories" ? "active" : "")">
+                        <i class="fas fa-tags"></i> Quản lý danh mục
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Brands/ListBrands" class="nav-link @(currentController == "Brands" ? "active" : "")">
+                        <i class="fas fa-crown"></i> Quản lý thương hiệu
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/WarehouseReceipts/Index" class="nav-link @(currentController == "WarehouseReceipts" ? "active" : "")">
+                        <i class="fas fa-warehouse"></i> Quản lý phiếu nhập kho
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Vouchers/ListVouchers" class="nav-link @(currentController == "Vouchers" ? "active" : "")">
+                        <i class="fas fa-ticket-alt"></i> Quản lý voucher
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Reports/Index" class="nav-link @(currentController == "Reports" ? "active" : "")">
+                        <i class="fas fa-chart-bar"></i> Báo cáo
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="/Admin/Settings/Index" class="nav-link @(currentController == "Settings" ? "active" : "")">
+                        <i class="fas fa-cog"></i> Cài đặt
+                    </a>
+                </li>
+            </ul>
+
+            <div class="user-info mt-auto d-flex align-items-center flex-column">
+                <div class="d-flex align-items-center mb-2">
+                    <i class="fas fa-user-circle"></i>
+                    <span class="ms-2">@userName</span>
+                </div>
+                @using (Html.BeginForm("Logout", "Account", new { area = "" }, FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-danger btn-sm logout-btn">
+                        <i class="fas fa-sign-out-alt me-1"></i> Đăng xuất
+                    </button>
+                }
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <main class="content">
+            <!-- Mobile menu button -->
+            <button class="btn btn-primary d-md-none mb-3" id="sidebarToggle" style="position: fixed; top: 10px; left: 10px; z-index: 1001;">
+                <i class="fas fa-bars"></i>
+            </button>
+            @RenderBody()
+        </main>
+
+        <footer class="footer-intro">
+            <div class="footer-container">
+                <div class="footer-col footer-brand">
+                    <h3 class="footer-title">🌸 DDH Admin</h3>
+                    <p>Tổ 3, ấp 4, xã Tân Quan, huyện Hớn Quản, Tỉnh Bình Phước</p>
+                    <p>📞 0374 899 316</p>
+                    <p>📧 duyhoang270805@gmail.com</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="/Admin/Home/Index">Dashboard</a></li>
+                        <li><a href="/Admin/Products/ListProducts">Sản phẩm</a></li>
+                        <li><a href="/Admin/Orders/ListOrders">Đơn hàng</a></li>
+                        <li><a href="/Admin/Reports/Index">Báo cáo</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Kết nối</h4>
+                    <ul class="social-links">
+                        <li><a href="https://www.facebook.com/amduyhoang" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://www.instagram.com/_duyhoang08" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                © @DateTime.Now.Year <strong>DDH Admin</strong> — All rights reserved 🌸
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle').addEventListener('click', function () {
+            const sidebar = document.querySelector('.sidebar-admin');
+            sidebar.classList.toggle('show');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function (e) {
+            const sidebar = document.querySelector('.sidebar-admin');
+            const toggleBtn = document.getElementById('sidebarToggle');
+
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target)) {
+                    sidebar.classList.remove('show');
+                }
+            }
+        });
+    </script>
+    @RenderSection("Scripts", required: false)
 </body>
 </html>

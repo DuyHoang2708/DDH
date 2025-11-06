@@ -33,7 +33,8 @@
 
             [ForeignKey("BrandId")]
             public Brand? Brand { get; set; }
+        public int ViewCount { get; set; } = 0;
 
-            public int Stock { get; set; } = 0;
+        public int Stock { get; set; } = 0;
         }
     }

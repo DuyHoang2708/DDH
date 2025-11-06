@@ -1,0 +1,92 @@
+﻿@model IEnumerable<DDH.Models.Favorite>
+
+@{
+    ViewData["Title"] = "Danh sách yêu thích";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center fw-bold mb-4 text-primary">
+        <i class="bi bi-heart-fill text-danger"></i> Danh sách sản phẩm yêu thích
+    </h2>
+
+    @if (Model != null && Model.Any())
+    {
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                var product = item.Product;
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow-sm border-0 favorite-card h-100">
+                        <img src="@product.ImageUrl" class="card-img-top" alt="@product.Name" style="height:220px; object-fit:cover;" />
+                        <div class="card-body text-center">
+                            <h6 class="card-title fw-bold">@product.Name</h6>
+                            <p class="text-danger fw-semibold">@product.Price.ToString("N0") ₫</p>
+
+                            <div class="d-flex justify-content-center gap-2">
+                                <a href="/Products/Details/@product.ProductId" class="btn btn-outline-primary btn-sm">
+                                    <i class="bi bi-eye"></i> Xem
+                                </a>
+
+                                <form asp-controller="Favorites" asp-action="RemoveFromFavorites" method="post" class="m-0">
+                                    <input type="hidden" name="productId" value="@product.ProductId" />
+                                    <button type="submit" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash"></i> Xóa
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center shadow-sm p-4 rounded-3">
+            <i class="bi bi-emoji-smile text-primary fs-4"></i>
+            <p class="mt-2 mb-0">Bạn chưa có sản phẩm yêu thích nào.</p>
+            <a href="/Products" class="btn btn-primary btn-sm mt-3">
+                <i class="bi bi-shop"></i> Khám phá ngay
+            </a>
+        </div>
+    }
+</div>
+
+<style>
+    body {
+        background-color: #f8f9fa;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    .favorite-card {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 10px;
+    }
+
+        .favorite-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+
+    .btn-outline-danger:hover {
+        color: #fff;
+        background-color: #dc3545;
+        border-color: #dc3545;
+    }
+
+    .btn-outline-primary:hover {
+        color: #fff;
+        background-color: #0d6efd;
+        border-color: #0d6efd;
+    }
+
+    .alert-info {
+        background-color: #e9f5ff;
+        border-color: #b8e0ff;
+    }
+</style>

@@ -13,9 +13,42 @@
         <p class="lead mt-3 mb-4 text-muted">
             Cập nhật xu hướng thời trang mới nhất – phong cách, chất lượng và giá tốt!
         </p>
-        <a href="/Admin/Products/ListProducts" class="btn btn-primary btn-lg">
-            Quản lý sản phẩm
-        </a>
+    </div>
+
+    <!-- Bộ lọc tìm kiếm -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <input type="text" id="search" class="form-control"
+                   value="@ViewBag.Keyword"
+                   placeholder="Tìm sản phẩm...">
+        </div>
+        <div class="col-md-2">
+            <select id="category" class="form-select">
+                <option value="">--Danh mục--</option>
+                @foreach (var cat in ViewBag.Categories ?? new List<DDH.Models.Category>())
+                {
+                    <option value="@cat.CategoryId">@cat.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <select id="brand" class="form-select">
+                <option value="">--Thương hiệu--</option>
+                @foreach (var br in ViewBag.Brands ?? new List<DDH.Models.Brand>())
+                {
+                    <option value="@br.BrandId">@br.Name</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-2">
+            <input type="number" id="minPrice" class="form-control" placeholder="Giá từ">
+        </div>
+        <div class="col-md-2">
+            <input type="number" id="maxPrice" class="form-control" placeholder="Đến">
+        </div>
+        <div class="col-md-1">
+            <button id="btnFilter" class="btn btn-primary w-100">Lọc</button>
+        </div>
     </div>
 
     <!-- Danh mục nổi bật -->
@@ -50,8 +83,10 @@
         </div>
     </div>
 
-    <!-- Sản phẩm nổi bật -->
-    <h2 class="text-center mb-4 fw-semibold">Sản phẩm nổi bật</h2>
+    <!-- Sản phẩm nổi bật / kết quả tìm kiếm -->
+    <h2 class="text-center mb-4 fw-semibold">
+        @(string.IsNullOrEmpty(ViewBag.Keyword) ? "Sản phẩm nổi bật" : $"Kết quả tìm kiếm cho: \"{ViewBag.Keyword}\"")
+    </h2>
 
     <div class="row text-center">
         @if (Model != null && Model.Any())
@@ -59,7 +94,15 @@
             @foreach (var item in Model)
             {
                 <div class="col-md-3 mb-4">
-                    <div class="card h-100 shadow-sm border-0">
+                    <div class="card h-100 shadow-sm border-0 position-relative">
+                        <!-- Nút yêu thích -->
+                        <button type="button"
+                                class="btn btn-light position-absolute top-0 end-0 m-2 favorite-btn"
+                                data-id="@item.ProductId"
+                                title="Thêm vào yêu thích">
+                            <i class="bi bi-heart"></i>
+                        </button>
+
                         <img src="@item.ImageUrl" class="card-img-top" style="height:220px; object-fit:cover;" alt="@item.Name" />
                         <div class="card-body">
                             <h6 class="card-title fw-bold">@item.Name</h6>
@@ -85,11 +128,46 @@
         else
         {
             <div class="col-12">
-                <div class="alert alert-info text-center">Chưa có sản phẩm nào được hiển thị.</div>
+                <div class="alert alert-warning text-center shadow-sm">
+                    Không tìm thấy sản phẩm nào phù hợp với từ khóa
+                    <strong>@ViewBag.Keyword</strong>.
+                </div>
             </div>
         }
     </div>
 </div>
+
+@section Scripts {
+    <script>
+        // Yêu thích
+        $(document).on('click', '.favorite-btn', function () {
+            const btn = $(this);
+            const id = btn.data('id');
+
+            $.post('/Favorites/Add', { productId: id }, function (res) {
+                if (res.success) {
+                    btn.find('i').toggleClass('bi-heart bi-heart-fill');
+                } else {
+                    alert('Vui lòng đăng nhập để thêm vào yêu thích.');
+                }
+            }).fail(() => {
+                alert('Có lỗi xảy ra khi thêm vào yêu thích.');
+            });
+        });
+
+        // Lọc / Tìm kiếm
+        $("#btnFilter").click(function () {
+            const search = $("#search").val();
+            const category = $("#category").val();
+            const brand = $("#brand").val();
+            const minPrice = $("#minPrice").val();
+            const maxPrice = $("#maxPrice").val();
+
+            const url = `/Home/Index?search=${encodeURIComponent(search)}&categoryId=${category}&brandId=${brand}&minPrice=${minPrice}&maxPrice=${maxPrice}`;
+            window.location.href = url;
+        });
+    </script>
+}
 
 <style>
     body {
@@ -126,5 +204,22 @@
 
         .btn-outline-secondary:hover {
             background-color: #eee;
+        }
+
+    .favorite-btn {
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 6px rgba(0,0,0,0.15);
+        transition: all 0.2s ease;
+    }
+
+        .favorite-btn i {
+            color: #dc3545;
+            font-size: 1.2rem;
+        }
+
+        .favorite-btn:hover {
+            transform: scale(1.1);
+            background-color: #f8f9fa;
         }
 </style>

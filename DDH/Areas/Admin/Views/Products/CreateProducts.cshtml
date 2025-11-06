@@ -1,79 +1,143 @@
 ﻿@model DDH.Models.Product
 
 @{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     ViewData["Title"] = "Thêm sản phẩm mới";
 }
-<h2>Tạo mới sản phẩm</h2>
-
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #ffe6f0, #f9f7ff);
+        min-height: 100vh;
     }
+
     h2 {
         text-align: center;
         margin-bottom: 25px;
-        color: #2c3e50;
+        color: #5a2a5d;
         font-size: 22px;
+        font-weight: 600;
     }
+
     form {
-        max-width: 550px;
-        margin: 0 auto;
-        background-color: #f8f9fa;
-        padding: 20px 25px;
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+        max-width: 650px;
+        margin: 40px auto;
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d63384;
+        transition: 0.3s;
     }
-        form div {
-            margin-bottom: 16px;
-        }
+
+    form:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
     label {
         font-weight: 600;
         display: block;
-        margin-bottom: 5px;
-        color: #34495e;
-        font-size: 14px;
+        margin-bottom: 6px;
+        color: #6a097d;
+        font-size: 15px;
     }
+
     input[type="text"],
     input[type="number"],
     input[type="file"],
     textarea,
     select {
         width: 100%;
-        padding: 8px 10px;
+        padding: 10px 12px;
         border: 1px solid #ccc;
-        border-radius: 5px;
+        border-radius: 8px;
         font-size: 14px;
+        transition: all 0.3s ease;
     }
-    textarea {
-        resize: vertical;
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #d63384;
+        box-shadow: 0 0 6px rgba(214, 51, 132, 0.3);
+        outline: none;
     }
-    input[type="checkbox"] {
-        transform: scale(1.1);
-        margin-right: 6px;
-    }
-    button[type="submit"] {
-        background-color: #3498db;
-        color: white;
-        padding: 10px 20px;
+
+    .btn-primary {
+        background: linear-gradient(90deg, #d63384, #9b4dca);
         border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 15px;
-        transition: background-color 0.3s;
-        display: block;
-        margin: 15px auto 0;
+        padding: 10px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        transition: all 0.3s ease;
     }
-        button[type="submit"]:hover {
-            background-color: #2980b9;
-        }
-    .error-message {
-        color: red;
-        font-weight: bold;
-        text-align: center;
-        margin-bottom: 12px;
-        font-size: 14px;
+
+    .btn-primary:hover {
+        background: linear-gradient(90deg, #c21868, #8134af);
+        transform: scale(1.05);
+    }
+
+    .btn-secondary {
+        background-color: #bbb;
+        border: none;
+        border-radius: 8px;
+        transition: 0.3s;
+        color: white;
+    }
+
+    .btn-secondary:hover {
+        background-color: #999;
+    }
+
+    .card-header {
+        background: linear-gradient(90deg, #d63384, #9b4dca);
+        border-radius: 10px 10px 0 0 !important;
+    }
+
+    .card-header h4 {
+        font-weight: 600;
+        color: #fff;
+    }
+
+    .alert-success {
+        background-color: #f3f8f3;
+        color: #2ecc71;
+        border-left: 4px solid #2ecc71;
+    }
+
+    .alert-danger {
+        background-color: #fdecef;
+        color: #e74c3c;
+        border-left: 4px solid #e74c3c;
+    }
+
+    small.form-text {
+        color: #6c757d;
+        font-style: italic;
+    }
+
+    .d-flex.justify-content-between {
+        margin-top: 25px;
+    }
+
+    .form-control:hover, .form-select:hover {
+        border-color: #e26ba3;
+    }
+
+    #imagePreview img {
+        border: 2px solid #f3cce3;
+        transition: 0.3s;
+    }
+
+    #imagePreview img:hover {
+        transform: scale(1.03);
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
 </style>
+
+
 
 <div class="container-fluid">
     <div class="row">
@@ -177,12 +241,27 @@
                             @Html.LabelFor(m => m.Description, "Mô tả sản phẩm", new { @class = "form-label" })
                             @Html.TextAreaFor(m => m.Description, 3, 50, new { @class = "form-control", placeholder = "Nhập mô tả sản phẩm..." })
                         </div>
+<div class="mb-3">
+    <label class="form-label">Hình ảnh sản phẩm</label>
+    <input type="file" name="imageFile" class="form-control" accept="image/*" onchange="previewImage(event)" />
+    <small class="form-text text-muted">Chỉ chấp nhận JPG, PNG hoặc GIF.</small>
+    <div id="imagePreview" class="mt-3 text-center"></div>
+</div>
 
-                        <div class="mb-3">
-                            <label class="form-label">Hình ảnh sản phẩm</label>
-                            <input type="file" name="imageFile" class="form-control" accept="image/*" />
-                            <small class="form-text text-muted">Chỉ chấp nhận JPG, PNG hoặc GIF.</small>
-                        </div>
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = e => {
+                document.getElementById('imagePreview').innerHTML = 
+                    `<img src="${e.target.result}" alt="Preview" style="max-width:200px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.2);" />`;
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
+
 
                         <div class="d-flex justify-content-between">
                             <a asp-action="ListProducts" class="btn btn-secondary">

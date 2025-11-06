@@ -1,174 +1,269 @@
 ﻿@model DDH.Models.Product
 
 @{
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
     ViewData["Title"] = "Chỉnh sửa sản phẩm";
    
 }
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #ffe6f0; /* 💗 Hồng nhạt toàn trang */
+        min-height: 100vh;
+    }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-header bg-primary text-white">
-                    <h4 class="mb-0">
-                        <i class="fas fa-edit me-2"></i>Chỉnh sửa sản phẩm
-                    </h4>
+    h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #5a2a5d;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    form {
+        max-width: 650px;
+        margin: 40px auto;
+        background: #ffffff; /* 🌿 Form trắng tinh */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #d63384;
+        transition: 0.3s;
+    }
+
+        form:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+    label {
+        font-weight: 600;
+        display: block;
+        margin-bottom: 6px;
+        color: #6a097d;
+        font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    input[type="file"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+        background-color: #fff;
+    }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #d63384;
+            box-shadow: 0 0 6px rgba(214, 51, 132, 0.3);
+            outline: none;
+        }
+
+    .btn-primary {
+        background: linear-gradient(90deg, #d63384, #9b4dca);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #c21868, #8134af);
+            transform: scale(1.05);
+        }
+
+    .btn-secondary {
+        background-color: #bbb;
+        border: none;
+        border-radius: 8px;
+        transition: 0.3s;
+        color: white;
+    }
+
+        .btn-secondary:hover {
+            background-color: #999;
+        }
+
+    .card-header {
+        background: linear-gradient(90deg, #d63384, #b30059); /* 🌸 Hồng đậm gradient */
+        border-radius: 10px 10px 0 0 !important;
+        color: #fff;
+        padding: 12px 20px;
+    }
+
+        .card-header h4 {
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+        }
+
+    #imagePreview img {
+        border: 2px solid #f3cce3;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+        #imagePreview img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+        }
+
+    .d-flex.justify-content-between {
+        margin-top: 25px;
+    }
+
+    /* 🌷 Hiệu ứng fade-in nhẹ khi form xuất hiện */
+    form {
+        animation: fadeInUp 0.6s ease-out;
+    }
+
+    @@keyframes fadeInUp {
+        from
+
+    {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    }
+</style>
+
+
+
+<div class="container my-4">
+    <div class="card shadow-lg border-0 rounded-3">
+        <div class="card-header d-flex align-items-center">
+            <i class="fas fa-edit me-2"></i>
+            <h4 class="mb-0">Chỉnh sửa sản phẩm</h4>
+        </div>
+
+        <div class="card-body px-4 py-4">
+
+            <!-- Thông báo thành công / lỗi -->
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
-                <div class="card-body">
-                    @if (TempData["SuccessMessage"] != null)
-                    {
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <i class="fas fa-check-circle me-2"></i>@TempData["SuccessMessage"]
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    }
+            }
 
-                    @if (TempData["ErrorMessage"] != null)
-                    {
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            <i class="fas fa-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    }
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-2"></i>@TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            }
 
-                    <form asp-action="UpdateProducts" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="id" value="@Model.ProductId" />
+            <form asp-action="UpdateProducts" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="@Model.ProductId" />
 
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Tên sản phẩm</label>
-                                    <input type="text" class="form-control" name="productname" value="@Model.Name" />
-                                </div>
-                            </div>
-                            
+                <div class="row g-4">
+                    <!-- Cột trái: thông tin cơ bản -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Tên sản phẩm</label>
+                            <input type="text" class="form-control" name="productname" value="@Model.Name" placeholder="Nhập tên sản phẩm..." />
                         </div>
 
-                       
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Thương hiệu</label>
-                                    <select class="form-select" name="Brandid">
-                                        <option value="">Chọn thương hiệu</option>
-                                        @foreach (var brand in ViewBag.Brands)
-                                        {
-                                            @if (brand.BrandId == Model.BrandId)
-                                            {
-                                                <option value="@brand.BrandId" selected>@brand.Name</option>
-                                            }
-                                            else
-                                            {
-                                                <option value="@brand.BrandId">@brand.Name</option>
-                                            }
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Danh mục</label>
-                                    <select class="form-select" name="Categoryid">
-                                        <option value="">Chọn danh mục</option>
-                                        @foreach (var category in ViewBag.Categories)
-                                        {
-                                            @if (category.CategoryId == Model.CategoryId)
-                                            {
-                                                <option value="@category.CategoryId" selected>@category.Name</option>
-                                            }
-                                            else
-                                            {
-                                                <option value="@category.CategoryId">@category.Name</option>
-                                            }
-                                        }
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="mb-3">
-                                @Html.LabelFor(m => m.IsActive, "Trạng thái sản phẩm", new { @class = "form-label" })
-                                @Html.DropDownListFor(m => m.IsActive, new List<SelectListItem>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Thương hiệu</label>
+                            <select class="form-select" name="Brandid">
+                                <option value="">-- Chọn thương hiệu --</option>
+                                @foreach (var brand in ViewBag.Brands)
                                 {
-                                    new SelectListItem { Text = "Hiển thị", Value = "true", Selected = true },
-                                                                new SelectListItem { Text = "Ẩn", Value = "false" }
-                                                                }, new { @class = "form-select" })
-                            </div>
-                        </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <label class="form-label">Sản phẩm nổi bật</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" name="isfeatured" value="true" id="isFeatured"
-                                        <label class="form-check-label" for="isFeatured">
-                                            Đánh dấu là sản phẩm nổi bật
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
+                                    <option value="@brand.BrandId" @(brand.BrandId == Model.BrandId ? "selected" : "")>@brand.Name</option>
+                                }
+                            </select>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Mô tả</label>
-                                    <textarea class="form-control" name="description" rows="3" placeholder="Nhập mô tả sản phẩm...">@Model.Description</textarea>
-                                </div>
-                            </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Danh mục</label>
+                            <select class="form-select" name="Categoryid">
+                                <option value="">-- Chọn danh mục --</option>
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <option value="@category.CategoryId" @(category.CategoryId == Model.CategoryId ? "selected" : "")>@category.Name</option>
+                                }
+                            </select>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <label class="form-label">Hình ảnh sản phẩm</label>
-                                    <input type="file" class="form-control" name="imagepr" accept="image/*" />
-                                    <small class="form-text text-muted">Chỉ chấp nhận file hình ảnh (JPG, PNG, GIF). Để trống nếu không thay đổi ảnh.</small>
+                        <div class="mb-3">
+                            @Html.LabelFor(m => m.IsActive, "Trạng thái sản phẩm", new { @class = "form-label fw-semibold" })
+                            @Html.DropDownListFor(m => m.IsActive, new List<SelectListItem>
+                            {
+                                new SelectListItem { Text = "Hiển thị", Value = "true", Selected = Model.IsActive },
+                                                        new SelectListItem { Text = "Ẩn", Value = "false", Selected = !Model.IsActive }
+                                                        }, new { @class = "form-select" })
+                        </div>
+
+                    </div>
+
+                    <!-- Cột phải: mô tả và hình ảnh -->
+                    <div class="col-md-6">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Mô tả sản phẩm</label>
+                            <textarea class="form-control" name="description" rows="5" placeholder="Nhập mô tả...">@Model.Description</textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold">Hình ảnh sản phẩm</label>
+                            <input type="file" class="form-control" name="imagepr" accept="image/*" />
+                            <small class="text-muted">Chỉ chấp nhận JPG, PNG, GIF — để trống nếu không thay ảnh.</small>
+
                             @if (!string.IsNullOrEmpty(Model.ImageUrl))
-                                    {
-                                        <div class="mt-2">
-                                    <img src="@Model.ImageUrl" alt="@Model.Name" style="max-width: 200px; border-radius: 8px;" />
-                                            <small class="text-muted d-block">Ảnh hiện tại</small>
-                                        </div>
-                                    }
+                            {
+                                <div class="mt-3">
+                                    <img src="@Model.ImageUrl" alt="@Model.Name"
+                                         class="img-thumbnail shadow-sm"
+                                         style="max-width: 220px; border-radius: 10px;" />
+                                    <div class="text-muted mt-1 small fst-italic">Ảnh hiện tại</div>
                                 </div>
-                            </div>
+                            }
                         </div>
-
-                        <div class="row">
-                            <div class="col-12">
-                                <div class="alert alert-info">
-                                    <h6><i class="fas fa-info-circle me-2"></i>Thông tin sản phẩm hiện tại</h6>
-                                    <div class="row">
-                                        <div class="col-md-3">
-                                            <strong>ID:</strong> @Model.ProductId
-                                        </div>
-                                        <div class="col-md-3">
-                                            <strong>Tên:</strong> @Model.Name
-                                        </div>
-                                      
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <a href="@Url.Action("ListProducts", "Products", new { area = "Admin" })" class="btn btn-secondary">
-                                <i class="fas fa-arrow-left me-2"></i>Quay lại
-                            </a>
-                            <div>
-                                <button type="button" class="btn btn-outline-secondary me-2" onclick="resetForm()">
-                                    <i class="fas fa-undo me-2"></i>Khôi phục
-                                </button>
-                                <button type="submit" class="btn btn-primary">
-                                    <i class="fas fa-save me-2"></i>Cập nhật
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+
+                <!-- Thông tin hiện tại -->
+                <div class="alert alert-info mt-4">
+                    <h6 class="fw-bold"><i class="fas fa-info-circle me-2"></i>Thông tin sản phẩm hiện tại</h6>
+                    <div class="row">
+                        <div class="col-md-3"><strong>ID:</strong> @Model.ProductId</div>
+                        <div class="col-md-5"><strong>Tên:</strong> @Model.Name</div>
+                        <div class="col-md-4"><strong>Trạng thái:</strong> @(Model.IsActive ? "Hiển thị" : "Ẩn")</div>
+                    </div>
+                </div>
+
+                <!-- Nút hành động -->
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <a href="@Url.Action("ListProducts", "Products", new { area = "Admin" })" class="btn btn-secondary px-4">
+                        <i class="fas fa-arrow-left me-2"></i>Quay lại
+                    </a>
+                    <div>
+                        <button type="button" class="btn btn-outline-secondary me-2 px-4" onclick="resetForm()">
+                            <i class="fas fa-undo me-2"></i>Khôi phục
+                        </button>
+                        <button type="submit" class="btn btn-primary px-4">
+                            <i class="fas fa-save me-2"></i>Cập nhật
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
@@ -180,8 +275,10 @@
         }
     }
 
-    // Auto-hide alerts after 5 seconds
-    setTimeout(function() {
-        $('.alert').fadeOut('slow');
+    // Tự ẩn thông báo sau 5 giây
+    setTimeout(function () {
+        const alerts = document.querySelectorAll('.alert');
+        alerts.forEach(a => a.classList.add('fade'));
+        setTimeout(() => alerts.forEach(a => a.remove()), 800);
     }, 5000);
-</script> 
+</script>

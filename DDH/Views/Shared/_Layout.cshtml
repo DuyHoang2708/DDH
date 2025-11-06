@@ -1,16 +1,31 @@
-﻿
+﻿@*
+  File: Views/Shared/_Layout.cshtml
+  Updated: Footer màu hồng nhạt + căn chỉnh bố cục đẹp hơn
+*@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
     <meta charset="utf-8" />
     <title>@ViewData["Title"] - ClothingShop</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
     <style>
+        /* ----- Global ----- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
         }
 
         .navbar-brand {
@@ -46,56 +61,147 @@
             font-size: 0.75rem;
             padding: 2px 6px;
         }
+
+        /* ----- Footer ----- */
+        .footer-intro {
+            background-color: #ffe6f2; /* 🌸 Màu hồng nhạt */
+            color: #333;
+            border-top: 1px solid #f1b6c8;
+        }
+
+        .footer-container {
+            padding-top: 3rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .footer-title {
+            font-size: 1.5rem;
+            color: #d63384;
+            font-weight: 700;
+        }
+
+        .footer-intro a {
+            transition: color 0.25s ease, transform 0.25s ease;
+        }
+
+            .footer-intro a:hover {
+                color: #d63384 !important;
+                transform: translateX(3px);
+            }
+
+        .social-icon {
+            font-size: 1.6rem;
+            display: inline-block;
+            transition: transform 0.25s ease;
+        }
+
+            .social-icon:hover {
+                transform: scale(1.25);
+            }
+
+        .footer-bottom {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            background-color: #ffd9ec;
+            color: #444;
+            font-size: 0.9rem;
+        }
+
+        @@media (max-width: 768px) {
+            .footer-container {
+                text-align: center;
+            }
+
+            .social-links {
+                justify-content: center !important;
+            }
+        }
+
+        .search-form {
+            max-width: 550px;
+            position: relative;
+        }
+
+        .search-wrapper {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+            .search-wrapper:hover {
+                box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+                transform: translateY(-2px);
+            }
+
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 50px 0 0 50px;
+        }
+
+            .search-input::placeholder {
+                color: #aaa;
+            }
+
+        .search-btn {
+            background-color: #4B49AC;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border-radius: 0 50px 50px 0;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+            .search-btn:hover {
+                background-color: #3c3aa7;
+                transform: scale(1.05);
+            }
+
+            .search-btn i {
+                vertical-align: middle;
+            }
     </style>
 </head>
 <body>
-    <!-- 🔝 Navbar -->
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
         <div class="container py-2">
-            <!-- Logo -->
-            <a class="navbar-brand text-primary" href="/">
-                👕 DDHSTORE
-            </a>
+            <a class="navbar-brand text-primary" href="/">👕 DDHSTORE</a>
 
-            <!-- Nút menu khi thu nhỏ -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <!-- Nội dung navbar -->
             <div class="collapse navbar-collapse" id="navbarMain">
-                <!-- Thanh tìm kiếm -->
-                <form class="d-flex ms-auto me-3 search-box" method="get" action="/Products/Search" style="max-width: 350px;">
-                    <input class="form-control" type="text" name="keyword" placeholder="Tìm kiếm sản phẩm..." />
-                    <button class="btn btn-outline-primary" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
+                <!-- Ô tìm kiếm sản phẩm -->
+                <form class="search-form mx-auto my-4" method="get" action="/Home/Index">
+                    <div class="search-wrapper">
+                        <input type="text" name="search" value="@Context.Request.Query["search"]"
+                               class="form-control search-input"
+                               placeholder="Tìm kiếm sản phẩm, thương hiệu, danh mục...">
+                        <button type="submit" class="search-btn">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
                 </form>
 
-                <!-- Menu điều hướng -->
-                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <i class="bi bi-house-door"></i> Trang chủ
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Products">
-                            <i class="bi bi-bag"></i> Sản phẩm
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Favorites">
-                            <i class="bi bi-heart"></i> Yêu thích
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/Orders">
-                            <i class="bi bi-box-seam"></i> Đơn hàng
-                        </a>
-                    </li>
 
-                    <!-- 🛒 Giỏ hàng -->
+
+
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="/"><i class="bi bi-house-door"></i> Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Products"><i class="bi bi-bag"></i> Sản phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Favorites/ListFavorites"><i class="bi bi-heart"></i> Yêu thích</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/Orders"><i class="bi bi-box-seam"></i> Đơn hàng</a></li>
+
                     <li class="nav-item">
                         <a class="nav-link position-relative" href="/Cart/ListCart">
                             <i class="bi bi-cart3 fs-5"></i> Giỏ hàng
@@ -103,59 +209,77 @@
                         </a>
                     </li>
 
-
                     @{
                         var username = Context.Session.GetString("Username");
                     }
 
                     @if (string.IsNullOrEmpty(username))
                     {
-                        <!-- Nếu CHƯA đăng nhập -->
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">
-                                <i class="bi bi-person"></i> Đăng nhập
-                            </a>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/Account/Login"><i class="bi bi-person"></i> Đăng nhập</a></li>
                     }
                     else
                     {
-                        <!-- Nếu ĐÃ đăng nhập -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="bi bi-person-circle fs-5 me-1"></i>
-                                <span>@username</span>
+                                <i class="bi bi-person-circle fs-5 me-1"></i> <span>@username</span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userDropdown">
-                                <li>
-                                    <a class="dropdown-item" href="/Account/Profile">
-                                        <i class="bi bi-person-lines-fill me-2"></i> Hồ sơ cá nhân
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item" href="/Account/Profile"><i class="bi bi-person-lines-fill me-2"></i> Hồ sơ cá nhân</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li>
-                                    <a class="dropdown-item text-danger" href="/Account/Logout">
-                                        <i class="bi bi-box-arrow-right me-2"></i> Đăng xuất
-                                    </a>
-                                </li>
+                                <li><a class="dropdown-item text-danger" href="/Account/Logout"><i class="bi bi-box-arrow-right me-2"></i> Đăng xuất</a></li>
                             </ul>
                         </li>
                     }
-
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Nội dung trang -->
+    <!-- Main -->
     <main role="main" class="pb-4">
         @RenderBody()
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-3 bg-white border-top mt-auto">
-        <p class="text-muted small mb-0">&copy; 2025 - ClothingShop. All rights reserved.</p>
+    <!-- 🌸 Footer -->
+    <footer class="footer-intro mt-auto">
+        <div class="footer-container container">
+            <div class="row text-center text-md-start align-items-start">
+                <div class="col-md-4 mb-4">
+                    <h3 class="footer-title mb-3">🌸 DDH Admin</h3>
+                    <p class="mb-1"><i class="bi bi-geo-alt-fill text-danger me-2"></i>Tổ 3, ấp 4, xã Tân Quan, Hớn Quản, Bình Phước</p>
+                    <p class="mb-1"><i class="bi bi-telephone-fill text-success me-2"></i>0374 899 316</p>
+                    <p class="mb-0"><i class="bi bi-envelope-fill text-primary me-2"></i><a href="mailto:duyhoang270805@gmail.com" class="text-decoration-none text-dark">duyhoang270805@gmail.com</a></p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3 text-dark">Liên kết nhanh</h4>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="/Admin/Home/Index" class="text-decoration-none text-dark"><i class="bi bi-speedometer2 me-2 text-primary"></i> Dashboard</a></li>
+                        <li class="mb-2"><a href="/Admin/Products/ListProducts" class="text-decoration-none text-dark"><i class="bi bi-box-seam me-2 text-primary"></i> Sản phẩm</a></li>
+                        <li class="mb-2"><a href="/Admin/Orders/ListOrders" class="text-decoration-none text-dark"><i class="bi bi-cart-check me-2 text-primary"></i> Đơn hàng</a></li>
+                        <li><a href="/Admin/Reports/Index" class="text-decoration-none text-dark"><i class="bi bi-bar-chart me-2 text-primary"></i> Báo cáo</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-semibold mb-3 text-dark">Kết nối với tôi</h4>
+                    <div class="d-flex justify-content-center justify-content-md-start gap-3 social-links">
+                        <a href="https://www.facebook.com/amduyhoang" target="_blank" class="social-icon text-primary"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/_duyhoang08" target="_blank" class="social-icon text-danger"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-icon text-info"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://youtube.com" target="_blank" class="social-icon text-danger"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center border-top">
+            © @DateTime.Now.Year <strong>DDH Admin</strong> — All rights reserved 🌸
+        </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>

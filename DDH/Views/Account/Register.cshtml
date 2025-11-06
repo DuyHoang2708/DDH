@@ -1,42 +1,69 @@
 ﻿@model DDH.Models.Account
 @{
     ViewData["Title"] = "Đăng ký tài khoản";
-    Layout = "~/Views/Shared/_Layout.cshtml"; // nếu bạn có layout khác thì đổi lại
+    Layout = "~/Views/Shared/_Layout.cshtml"; // chỉnh lại nếu layout khác
 }
 
-<div class="container mt-5" style="max-width: 500px;">
-    <div class="card shadow p-4">
-        <h3 class="text-center mb-4 text-primary">Tạo tài khoản mới</h3>
+<div class="container mt-5" style="max-width: 550px;">
+    <div class="card shadow-lg border-0 p-4 rounded-4">
+        <h3 class="text-center text-primary mb-4">Tạo tài khoản mới</h3>
 
-        <form asp-action="Register" method="post">
+        @* ✅ Hiển thị thông báo TempData hoặc lỗi *@
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+        @if (ViewData.ModelState.ErrorCount > 0)
+        {
+            <div class="alert alert-danger">
+                @foreach (var err in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                {
+                    <div>@err.ErrorMessage</div>
+                }
+            </div>
+        }
+
+        <form asp-action="Register" method="post" novalidate>
             <div class="mb-3">
-                <label asp-for="FullName" class="form-label">Họ và tên</label>
-                <input asp-for="FullName" class="form-control" placeholder="Nhập họ tên đầy đủ" />
+                <label asp-for="FullName" class="form-label fw-semibold">Họ và tên</label>
+                <input asp-for="FullName" class="form-control" placeholder="Nhập họ và tên" />
                 <span asp-validation-for="FullName" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Username" class="form-label">Tên đăng nhập</label>
+                <label asp-for="Username" class="form-label fw-semibold">Tên đăng nhập</label>
                 <input asp-for="Username" class="form-control" placeholder="Tên đăng nhập" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Email" class="form-label">Email</label>
+                <label asp-for="Email" class="form-label fw-semibold">Email</label>
                 <input asp-for="Email" class="form-control" placeholder="Email của bạn" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
-                <label asp-for="Password" class="form-label">Mật khẩu</label>
-                <input asp-for="Password" type="password" class="form-control" placeholder="Nhập mật khẩu" />
+                <label asp-for="Phone" class="form-label fw-semibold">Số điện thoại</label>
+                <input asp-for="Phone" class="form-control" placeholder="Số điện thoại (nếu có)" />
+                <span asp-validation-for="Phone" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Password" class="form-label fw-semibold">Mật khẩu</label>
+                <div class="input-group">
+                    <input asp-for="Password" type="password" class="form-control" id="password" placeholder="Nhập mật khẩu" />
+                    <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                        <i class="bi bi-eye-slash"></i>
+                    </button>
+                </div>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
 
-            <button type="submit" class="btn btn-primary w-100">Đăng ký</button>
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-semibold">Đăng ký</button>
 
             <div class="text-center mt-3">
-                <a asp-action="Login" class="text-decoration-none">Đã có tài khoản? Đăng nhập</a>
+                <span>Đã có tài khoản?</span>
+                <a asp-action="Login" class="text-decoration-none text-primary fw-semibold">Đăng nhập ngay</a>
             </div>
         </form>
     </div>
@@ -44,4 +71,16 @@
 
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        // 👁 Toggle ẩn/hiện mật khẩu
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            const input = document.getElementById("password");
+            const icon = this.querySelector("i");
+            const isHidden = input.getAttribute("type") === "password";
+            input.setAttribute("type", isHidden ? "text" : "password");
+            icon.classList.toggle("bi-eye");
+            icon.classList.toggle("bi-eye-slash");
+        });
+    </script>
 }

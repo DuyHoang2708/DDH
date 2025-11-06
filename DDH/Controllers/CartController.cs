@@ -1,9 +1,11 @@
-﻿using DDH.Models;
+﻿using DDH.Filters;
+using DDH.Models;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 
 namespace DDH.Controllers
 {
+    [AuthorizeRole(0, 1)]
     public class CartController : Controller
     {
         private readonly ApplicationDbContext _context;

@@ -1,0 +1,185 @@
+﻿@model List<DDH.Models.Brand>
+
+@{
+    ViewData["Title"] = "Quản lý Thương Hiệu";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="container-fluid py-4" style="background-color: #ffe6f0; min-height: 100vh; border-radius: 10px;">
+    <!-- Header -->
+    <div class="row mb-4">
+        <div class="col-12 d-flex justify-content-between align-items-center">
+            <div>
+                <h3 class="fw-bold text-primary mb-1">
+                    <i class="fas fa-tags me-2"></i>Quản lý thương hiệu
+                </h3>
+                <p class="text-muted mb-0">Theo dõi, chỉnh sửa và cập nhật thông tin thương hiệu</p>
+            </div>
+            <a href="/Admin/Brands/CreateBrands" class="btn btn-success shadow-sm">
+                <i class="fas fa-plus me-1"></i> Thêm thương hiệu
+            </a>
+        </div>
+    </div>
+
+    <!-- Thông báo -->
+    @if (!string.IsNullOrEmpty(ViewBag.Error))
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            <i class="fas fa-exclamation-circle me-2"></i>@ViewBag.Error
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    @if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show">
+            <i class="fas fa-check-circle me-2"></i>@TempData["Success"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    }
+
+    <!-- Bảng thương hiệu -->
+    <div class="card border-0 shadow-sm">
+        <div class="card-header text-white fw-bold" style="background: linear-gradient(90deg, #e91e63, #f06292);">
+            <i class="fas fa-list me-2"></i>Danh sách thương hiệu (@Model.Count() mục)
+        </div>
+        <div class="card-body p-0">
+            @if (Model.Any())
+            {
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light text-center">
+                            <tr>
+                                <th>ID</th>
+                                <th>Tên thương hiệu</th>
+                                <th>Trạng thái</th>
+                                <th width="150">Thao tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var brand in Model)
+                            {
+                                <tr>
+                                    <td class="text-center fw-bold">@brand.BrandId</td>
+                                    <td class="text-dark fw-semibold">@brand.Name</td>
+                                    <td class="text-center status-cell">
+                                        <span class="badge @(brand.IsActive ? "bg-success" : "bg-secondary")">
+                                            @(brand.IsActive ? "Hiển thị" : "Ẩn")
+                                        </span>
+                                    </td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group">
+                                            <a href="/Admin/Brands/UpdateBrands/@brand.BrandId"
+                                               class="btn btn-outline-primary" data-bs-toggle="tooltip" title="Chỉnh sửa">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button class="btn @(brand.IsActive ? "btn-outline-danger" : "btn-outline-secondary")"
+                                                    onclick="toggleStatus(@brand.BrandId, this)"
+                                                    data-bs-toggle="tooltip" title="Ẩn / Hiện thương hiệu">
+                                                <i class="fas @(brand.IsActive ? "fa-eye" : "fa-eye-slash")"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            }
+            else
+            {
+                <div class="text-center py-5">
+                    <i class="fas fa-box-open fa-3x text-muted mb-3"></i>
+                    <h6 class="text-muted">Không có thương hiệu nào được tìm thấy.</h6>
+                    <a href="/Admin/Brands/CreateBrands" class="btn btn-primary mt-2">
+                        <i class="fas fa-plus me-1"></i>Thêm thương hiệu mới
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Tooltip Bootstrap
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        tooltipTriggerList.map(function (tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        });
+
+        // Ẩn/hiện thương hiệu (POST đến Controller)
+        function toggleStatus(brandId, btn) {
+            fetch(`/Admin/Brands/ToggleStatus/${brandId}`, {
+                method: 'POST'
+            })
+                .then(response => {
+                    if (!response.ok) throw new Error("Server Error");
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.success) {
+                        const row = btn.closest("tr");
+                        const statusCell = row.querySelector(".status-cell span");
+
+                        if (statusCell) {
+                            if (data.isActive) {
+                                statusCell.textContent = "Hiển thị";
+                                statusCell.classList.remove("bg-secondary");
+                                statusCell.classList.add("bg-success");
+                            } else {
+                                statusCell.textContent = "Ẩn";
+                                statusCell.classList.remove("bg-success");
+                                statusCell.classList.add("bg-secondary");
+                            }
+                        }
+
+                        const icon = btn.querySelector("i");
+                        if (data.isActive) {
+                            icon.classList.replace("fa-eye-slash", "fa-eye");
+                            btn.classList.replace("btn-outline-secondary", "btn-outline-danger");
+                        } else {
+                            icon.classList.replace("fa-eye", "fa-eye-slash");
+                            btn.classList.replace("btn-outline-danger", "btn-outline-secondary");
+                        }
+                    } else {
+                        alert("Không thể đổi trạng thái thương hiệu!");
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    alert("Lỗi kết nối đến server!");
+                });
+        }
+    </script>
+}
+
+<style>
+    .table thead th {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .table td {
+        vertical-align: middle;
+    }
+
+    .badge {
+        font-size: 0.85rem;
+    }
+
+    .card {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    @@media (max-width: 768px) {
+        .btn-group {
+            flex-direction: column;
+        }
+
+            .btn-group .btn {
+                margin-bottom: 5px;
+            }
+    }
+</style>

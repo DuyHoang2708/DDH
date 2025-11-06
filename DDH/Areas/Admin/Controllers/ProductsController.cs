@@ -1,10 +1,12 @@
-﻿using DDH.Models;
+﻿using DDH.Filters;
+using DDH.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace DDH.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [AuthorizeRole(1)]
     public class ProductsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -149,6 +151,9 @@ namespace DDH.Areas.Admin.Controllers
             ViewBag.Brands = _context.Brands.ToList();
             return View(product);
         }
+        // ===================== TÌM KIẾM SẢN PHẨM =====================
+        
+
 
         // ===================== ẨN / HIỆN SẢN PHẨM =====================
         [HttpPost]
@@ -156,17 +161,20 @@ namespace DDH.Areas.Admin.Controllers
         {
             var product = await _context.Products.FindAsync(id);
             if (product == null)
-                return NotFound();
+                return Json(new { success = false, message = "Không tìm thấy sản phẩm!" });
 
             product.IsActive = !product.IsActive;
             _context.Update(product);
             await _context.SaveChangesAsync();
 
-            TempData["SuccessMessage"] = product.IsActive
-                ? "🔓 Sản phẩm đã được hiển thị!"
-                : "🔒 Sản phẩm đã được ẩn!";
-
-            return RedirectToAction(nameof(ListProducts));
+            return Json(new
+            {
+                success = true,
+                isActive = product.IsActive,
+                message = product.IsActive
+                    ? "🔓 Sản phẩm đã được hiển thị!"
+                    : "🔒 Sản phẩm đã được ẩn!"
+            });
         }
 
     }
